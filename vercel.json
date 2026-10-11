@@ -1,0 +1,76 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sobre",
+      "destination": "/#sobre",
+      "permanent": false
+    },
+    {
+      "source": "/faq",
+      "destination": "/#duvidas",
+      "permanent": false
+    },
+    {
+      "source": "/contato",
+      "destination": "/#contato",
+      "permanent": false
+    },
+    {
+      "source": "/regioes-de-atendimento",
+      "destination": "/#contato",
+      "permanent": false
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/:post*",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}
